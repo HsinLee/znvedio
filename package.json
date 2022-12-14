@@ -11,12 +11,23 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vitejs/plugin-legacy": "^1.8.0",
+    "@vitejs/plugin-vue": "^1.2.2",
+    "@vitejs/plugin-vue-jsx": "^1.1.4",
+    "@vue/compiler-sfc": "^3.0.5",
     "axios": "0.21.1",
     "element-plus": "2.0.2",
     "https": "1.0.0",
     "less": "4.1.1",
     "less-loader": "10.0.1",
     "qs": "6.10.1",
+    "vite": "2.5.10",
+    "vite-plugin-commonjs": "^0.2.6",
+    "vite-plugin-compression": "^0.4.0",
+    "vite-plugin-monaco-editor": "^1.0.5",
+    "vite-plugin-style-import": "^0.10.1",
+    "vite-plugin-vconsole": "^1.2.0",
+    "vite-plugin-vue-setup-extend": "^0.4.0",
     "vue": "3.2.25",
     "vue-router": "4.0.3"
   },
@@ -36,7 +47,6 @@
     "portfinder": "^1.0.28",
     "swagger-client": "^3.8.22",
     "swagger-tools": "^0.10.4",
-    "url": "^0.11.0",
-    "vite": "2.5.10"
+    "url": "^0.11.0"
   }
 }

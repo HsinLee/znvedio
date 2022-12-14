@@ -4,7 +4,7 @@ import { addClass, removeClass } from "./dom";
 import { getLoadingTarget } from './common';
 
 class Loading {
-    show(opts = {} as any) {
+    show(opts = {}) {
         // 获取loading指定区域
         const target = getLoadingTarget(opts.target);
         // 比对loading 对应target 是否已开启 就不关重开了
@@ -23,7 +23,7 @@ class Loading {
             }, opts));
         });
     }
-    hide(cb?) {
+    hide(cb) {
         if (window['$$LoadingTarget']) {
             removeClass(window['$$LoadingTarget'], "container-heiall-hidden");
             window['$$LoadingTarget'] = null;

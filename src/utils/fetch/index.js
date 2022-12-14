@@ -4,12 +4,20 @@ import { merge } from "lodash";
 import { handleError, reportError } from "./dealError";
 import { cancelRequest } from "./cancel";
 import loading from "../loading/index";
-import { baseUrl } from "@/service/index";
+import { getENV } from '../../utils/env/index';
+
+
+const baseUrl = {
+    development: 'http://znvedio-dev.com',
+    production: 'http://znvedio.com',
+    mock: 'http://znvedio-mock.com:9000',
+}[getENV()];
+
 
 // headers post
 Axios.defaults.headers.post["Content-Type"] = "application/json";
 
-const AXIOS_CONFIG: any = {
+const AXIOS_CONFIG = {
     withCredentials: true,
     timeout: 30000,
     baseURL: baseUrl
@@ -27,7 +35,7 @@ let defaultOptions = {
 // 自定义配置
 let AXIOS_CONFIG_CUSTOM = {};
 
-const fetch: any = Axios.create(AXIOS_CONFIG);
+const fetch = Axios.create(AXIOS_CONFIG);
 fetch.cancelRequest = cancelRequest();
 
 fetch.interceptors.request.use(
@@ -55,7 +63,7 @@ fetch.interceptors.request.use(
 );
 
 fetch.interceptors.response.use((response) => {
-    const { config = {} as any, headers = {} as any, data: resData = {} as any } = response;
+    const { config = {} , headers = {} , data: resData = {} } = response;
 
     // http错误
     if (response.status < 200 || response.status >= 300) {
@@ -91,7 +99,7 @@ fetch.interceptors.response.use((response) => {
     }
     return Promise.resolve(resData);
 }, (error) => {
-    const { config = {} as any, response = {} as any, message } = error;
+    const { config = {} , response = {} , message } = error;
     // 处理错误
     if (config && config.isHandleError) {
         if (response) {
