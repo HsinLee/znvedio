@@ -1,0 +1,14 @@
+{
+    "/demo/list": {
+        "code": 0,
+        "message": "成功",
+        "data": {
+            "list|20": [
+                {
+                    "id": "@id",
+                    "username": "@cname"
+                }
+            ]
+        }
+    }
+}
