@@ -7,6 +7,7 @@
                     :is="Component"
                     :key="route.path"
                 />
+            
         </router-view>
     </div>
 </template>
