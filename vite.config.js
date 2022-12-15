@@ -6,7 +6,14 @@ import { vitePluginCommonjs } from "vite-plugin-commonjs";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
+	css: {
+            preprocessorOptions: {
+                less: {
+                    javascriptEnabled: true,
+                }
+            },
+        },
+    plugins: [
   		vue(),
   		vueJSX(),
   		vitePluginCommonjs(),

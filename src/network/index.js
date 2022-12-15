@@ -1,9 +1,8 @@
-import fetch, { setConfig } from '../utils/fetch/index';
-import { getENV } from '../utils/env/index';
+import fetch from '../utils/fetch/index';
 
 
-
-export {
-    fetch,
-    getENV,
+// POST /api/sales-order/count_pc
+export default {
+    getList: (params) =>
+        fetch.post("/demo/list", params)
 };
